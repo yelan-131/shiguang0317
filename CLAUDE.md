@@ -13,7 +13,7 @@
 
 - `manifest.json` — MV3 清单；权限：contextMenus / storage / notifications / tabs；host_permissions 含 `api.github.com` 和全站（抓取图片用）
 - `background.js` — 核心：右键菜单注册、GitHub Contents API 调用、按日追加归档
-- `popup.html/js/css` — 弹窗：连接状态 + 今日剪存条数（读 `chrome.storage.local.stats`）
+- `popup.html/js/css` — 弹窗：日期列表 → 当日条目，顶部搜索框跨文件本地过滤（上限 SEARCH_FILE_LIMIT=50 天）
 - `options.html/js` — 设置页：Token / 仓库 / 归档目录 / 测试连接
 - `icons/` — 16/32/48/128 PNG
 
@@ -41,4 +41,4 @@
 ## 已知待办
 
 - [ ] 批量剪存、标签分类
-- [ ] popup 内浏览/搜索历史剪存
+- [x] popup 内浏览/搜索历史剪存（搜索为拉取后本地过滤；图片缩略图经 Contents API 转 data URI，因私有仓库 raw 链接无 Token 不可直访）

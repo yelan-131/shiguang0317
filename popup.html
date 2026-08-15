@@ -6,13 +6,18 @@
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <div class="container">
-    <h1>✂️ 时光剪存</h1>
-    <p class="subtitle">网页剪存 → GitHub 按日归档</p>
-    <div id="status" class="status">加载中…</div>
-    <div id="today" class="today"></div>
-    <button id="options-btn" class="btn">⚙️ 设置</button>
+  <header>
+    <div class="title">✂️ 时光剪存</div>
+    <button id="options-btn" class="gear" title="设置">⚙️</button>
+  </header>
+
+  <div class="searchbar">
+    <input id="search" type="text" placeholder="搜索历史剪存，回车确认…">
   </div>
+
+  <div id="status" class="status hidden"></div>
+  <div id="content" class="content"></div>
+
   <script src="popup.js"></script>
 </body>
 </html>
