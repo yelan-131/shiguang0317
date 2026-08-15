@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>时光剪存 - 设置</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #fafafa;
+      color: #333;
+      max-width: 560px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 { font-size: 22px; margin-bottom: 6px; }
+    .subtitle { font-size: 13px; color: #888; margin-bottom: 24px; }
+    label { display: block; font-size: 14px; font-weight: 600; margin: 16px 0 6px; }
+    input {
+      width: 100%;
+      padding: 9px 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    input:focus { outline: none; border-color: #333; }
+    .hint { font-size: 12px; color: #999; margin-top: 4px; line-height: 1.6; }
+    .row { display: flex; gap: 10px; margin-top: 24px; }
+    button {
+      padding: 9px 22px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #save { background: #333; color: #fff; }
+    #test { background: #f0f0f0; color: #333; }
+    button:hover { opacity: 0.85; }
+    #status { margin-top: 16px; font-size: 13px; white-space: pre-wrap; }
+    #status.ok { color: #2e7d32; }
+    #status.err { color: #c62828; }
+    a { color: #1a73e8; }
+  </style>
+</head>
+<body>
+  <h1>✂️ 时光剪存 - 设置</h1>
+  <p class="subtitle">剪存目标为 GitHub 私有仓库，按日期归档为 Markdown</p>
+
+  <label for="token">GitHub Personal Access Token</label>
+  <input type="password" id="token" placeholder="github_pat_... 或 ghp_...">
+  <p class="hint">
+    在 <a href="https://github.com/settings/tokens?type=beta" target="_blank">GitHub → Settings → Developer settings → Tokens</a> 创建：
+    Classic Token 勾选 <b>repo</b> 权限；Fine-grained Token 需授权目标仓库的 Contents 读写。
+  </p>
+
+  <label for="repo">目标仓库（owner/repo）</label>
+  <input type="text" id="repo" placeholder="yelan-131/shiguang">
+  <p class="hint">需为私有仓库，例如 yelan-131/shiguang</p>
+
+  <label for="folder">归档目录</label>
+  <input type="text" id="folder" placeholder="clippings">
+  <p class="hint">Markdown 按日归档到 该目录/YYYY-MM-DD.md，图片存放在 images/ 目录</p>
+
+  <div class="row">
+    <button id="save">保存</button>
+    <button id="test">测试连接</button>
+  </div>
+  <div id="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
